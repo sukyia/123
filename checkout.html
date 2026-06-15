@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Casa Cheirosa Gastando Pouco</title>
+
+  <!-- META PIXEL — troque 1058206879624682 -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1058206879624682');
+    fbq('track', 'PageView');
+    fbq('track', 'InitiateCheckout', { value: 9.99, currency: 'BRL' });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1058206879624682&ev=PageView&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="checkout.css" />
+</head>
+<body>
+
+  <!-- ░░ STEP 1 — FORM ░░ -->
+  <div id="step-form" class="step active">
+    <div class="page-grid">
+
+      <!-- esquerda: form -->
+      <div class="left-panel">
+        <div class="left-inner">
+
+          <a href="index.html" class="back-link">← Voltar</a>
+
+          <div class="co-brand">
+            <div class="co-brand-icon">🏠</div>
+            <div>
+              <p class="co-brand-name">Casa Cheirosa Gastando Pouco</p>
+              <p class="co-brand-secure">🔒 Checkout 100% seguro</p>
+            </div>
+          </div>
+
+          <div class="step-indicator">
+            <div class="si-item active">
+              <div class="si-dot">1</div>
+              <span>Seus dados</span>
+            </div>
+            <div class="si-line"></div>
+            <div class="si-item">
+              <div class="si-dot">2</div>
+              <span>Pagamento</span>
+            </div>
+            <div class="si-line"></div>
+            <div class="si-item">
+              <div class="si-dot">3</div>
+              <span>Acesso</span>
+            </div>
+          </div>
+
+          <h1 class="form-title">Preencha seus dados</h1>
+          <p class="form-desc">O link de acesso será enviado para o seu e-mail logo após o pagamento.</p>
+
+          <form id="checkout-form" novalidate>
+            <div class="field-group">
+              <div class="field">
+                <label for="nome">Nome completo</label>
+                <div class="input-wrap">
+                  <span class="input-icon">👤</span>
+                  <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name" required />
+                </div>
+                <span class="field-err" id="err-nome"></span>
+              </div>
+
+              <div class="field">
+                <label for="email">E-mail</label>
+                <div class="input-wrap">
+                  <span class="input-icon">✉️</span>
+                  <input type="email" id="email" placeholder="seu@email.com" autocomplete="email" required />
+                </div>
+                <span class="field-err" id="err-email"></span>
+              </div>
+
+              <div class="field">
+                <label for="cpf">CPF <span class="label-note">— exigido pelo Banco Central para PIX</span></label>
+                <div class="input-wrap">
+                  <span class="input-icon">🪪</span>
+                  <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" required />
+                </div>
+                <span class="field-err" id="err-cpf"></span>
+              </div>
+            </div>
+
+            <button type="submit" class="pay-btn" id="btn-gerar">
+              <span id="btn-label">
+                <span class="pay-btn-icon">💚</span>
+                Gerar PIX — pagar R$9,99
+              </span>
+              <span id="btn-loading" hidden>
+                <span class="spinner"></span>
+                Gerando QR code...
+              </span>
+            </button>
+
+            <div class="trust-strip">
+              <div class="ts-item"><span>🔒</span> SSL seguro</div>
+              <div class="ts-item"><span>⚡</span> Acesso imediato</div>
+              <div class="ts-item"><span>🏦</span> PIX instantâneo</div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+      <!-- direita: resumo -->
+      <div class="right-panel">
+        <div class="order-card">
+          <p class="oc-label">Resumo do pedido</p>
+
+          <div class="oc-product">
+            <div class="oc-thumb">🏠</div>
+            <div class="oc-info">
+              <strong>Casa Cheirosa Gastando Pouco</strong>
+              <span>Guia digital de receitas caseiras</span>
+            </div>
+          </div>
+
+          <div class="oc-price-row">
+            <span>Subtotal</span>
+            <span>R$ 9,99</span>
+          </div>
+          <div class="oc-price-row green-row">
+            <span>✅ Desconto PIX</span>
+            <span>Grátis</span>
+          </div>
+          <div class="oc-total">
+            <span>Total hoje</span>
+            <div class="oc-total-val">
+              <span class="oc-curr">R$</span>
+              <span class="oc-num">9</span>
+              <span class="oc-cen">,99</span>
+            </div>
+          </div>
+
+          <div class="oc-divider"></div>
+
+          <p class="oc-inc-title">O que está incluso:</p>
+          <ul class="oc-inc-list">
+            <li>🚿 Receitas para banheiro, quarto e cozinha</li>
+            <li>🌸 Aromatizadores caseiros</li>
+            <li>✅ Checklist semanal</li>
+            <li>⚠️ Seção de segurança</li>
+            <li>⚡ Acesso imediato após pagamento</li>
+          </ul>
+
+          <div class="oc-pix-badge">
+            <span class="pix-logo">PIX</span>
+            <span>Pagamento instantâneo via PIX</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ░░ STEP 2 — PIX ░░ -->
+  <div id="step-pix" class="step">
+    <div class="pix-page">
+
+      <div class="pix-left">
+        <button class="back-link" onclick="voltarForm()">← Voltar</button>
+
+        <div class="step-indicator">
+          <div class="si-item done"><div class="si-dot">✓</div><span>Seus dados</span></div>
+          <div class="si-line done-line"></div>
+          <div class="si-item active"><div class="si-dot">2</div><span>Pagamento</span></div>
+          <div class="si-line"></div>
+          <div class="si-item"><div class="si-dot">3</div><span>Acesso</span></div>
+        </div>
+
+        <h2 class="pix-title">Pague com PIX</h2>
+        <p class="pix-desc">Escaneie o QR code com o app do seu banco ou copie o código abaixo. O acesso é liberado <strong>automaticamente</strong> assim que o pagamento cair.</p>
+
+        <div class="pix-how">
+          <div class="how-step"><div class="how-num">1</div><p>Abra o app do seu banco</p></div>
+          <div class="how-step"><div class="how-num">2</div><p>Vá em pagar com PIX ou QR code</p></div>
+          <div class="how-step"><div class="how-num">3</div><p>Escaneie ou cole o código</p></div>
+          <div class="how-step"><div class="how-num">4</div><p>Confirme o valor de R$9,99</p></div>
+        </div>
+      </div>
+
+      <div class="pix-right">
+        <div class="pix-card">
+
+          <div class="pc-header">
+            <div class="pc-title-row">
+              <span class="pix-logo-sm">PIX</span>
+              <span class="pc-val">R$ 9,99</span>
+            </div>
+            <div class="pc-timer" id="pc-timer">
+              ⏱ Expira em <strong id="countdown">15:00</strong>
+            </div>
+          </div>
+
+          <div class="qr-wrap" id="qr-wrap">
+            <div class="qr-inner" id="qr-inner">
+              <!-- QR code renderizado aqui -->
+            </div>
+            <div class="qr-loading" id="qr-loading">
+              <div class="qr-spinner"></div>
+              <span>Gerando QR code...</span>
+            </div>
+          </div>
+
+          <div class="copy-block">
+            <p class="copy-label">PIX Copia e Cola</p>
+            <div class="copy-row">
+              <input type="text" id="pix-code" class="copy-input" readonly />
+              <button class="copy-btn" id="btn-copy" onclick="copiarPix()">
+                <span id="copy-text">Copiar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pc-status" id="pc-status">
+            <div class="pc-dot"></div>
+            <span id="pc-status-text">Aguardando seu pagamento...</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ░░ STEP 3 — SUCESSO ░░ -->
+  <div id="step-success" class="step">
+    <div class="success-page">
+      <div class="success-box">
+        <div class="success-anim">🎉</div>
+        <h2>Pagamento confirmado!</h2>
+        <p>Mandamos o link de acesso para <strong id="success-email"></strong>. Verifique também a caixa de spam se não encontrar.</p>
+
+        <a href="#" class="access-btn" id="btn-access">Acessar meu guia agora →</a>
+
+        <div class="success-items">
+          <div class="si-check">✅ <span>Casa Cheirosa Gastando Pouco</span></div>
+          <div class="si-check">✅ <span>Acesso liberado imediatamente</span></div>
+          <div class="si-check">✅ <span>Link enviado para o seu e-mail</span></div>
+        </div>
+
+        <p class="success-note">Dúvidas? Entre em contato pelo e-mail de suporte.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="checkout.js"></script>
+</body>
+</html>
+
