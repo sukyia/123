@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/entregavel", "destination": "/entregavel.html" },
+    { "source": "/guia",       "destination": "/entregavel.html" }
+  ]
+}
